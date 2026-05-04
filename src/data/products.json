@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "/assets/product1.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Floral Summer Dress",
+    "brand": "BreezeWear",
+    "price": 35,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "Lightweight, breathable floral dress for beach days and summer parties.",
+    "image": "/assets/product2.png",
+    "category": "Clothing"
+  },
+  {
+    "id": 3,
+    "name": "Hydrating Sunscreen SPF 50",
+    "brand": "GlowSkin",
+    "price": 22,
+    "rating": 4.9,
+    "stock": 50,
+    "description": "Water-resistant, non-greasy sunscreen offering high SPF 50 protection.",
+    "image": "/assets/product3.png",
+    "category": "Skincare"
+  },
+  {
+    "id": 4,
+    "name": "Woven Straw Hat",
+    "brand": "BeachVibe",
+    "price": 18,
+    "rating": 4.5,
+    "stock": 30,
+    "description": "Wide-brimmed straw hat to protect you from the summer sun.",
+    "image": "/assets/product4.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 5,
+    "name": "Comfortable Flip Flops",
+    "brand": "StepEasy",
+    "price": 12,
+    "rating": 4.6,
+    "stock": 40,
+    "description": "Durable and comfortable flip flops suitable for pool and beach.",
+    "image": "/assets/product5.png",
+    "category": "Footwear"
+  },
+  {
+    "id": 6,
+    "name": "Cooling Aloe Vera Gel",
+    "brand": "NatureHeal",
+    "price": 10,
+    "rating": 4.7,
+    "stock": 60,
+    "description": "Soothing aloe vera gel to relieve sunburn and keep skin refreshed.",
+    "image": "/assets/product6.png",
+    "category": "Skincare"
+  }
+]
