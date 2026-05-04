@@ -13,8 +13,14 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
     notFound();
   }
 
-  // Protection for Task 13 will be added in next commit
+  // Protection for Task 13
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
 
+  if (!session) {
+    redirect(`/login?callbackURL=/products/${productId}`);
+  }
 
   return (
     <div className="container mx-auto px-4 py-16 animate__animated animate__fadeIn">
