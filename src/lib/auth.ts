@@ -10,6 +10,7 @@ export const auth = betterAuth({
         enabled: true,
     },
     advanced: {
+        // @ts-expect-error - useCamelCase is required for the current DB schema but missing from types
         useCamelCase: true
     }
 });
