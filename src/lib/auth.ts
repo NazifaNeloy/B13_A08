@@ -1,7 +1,10 @@
 import { betterAuth } from "better-auth";
-import Database from "better-sqlite3";
+import { createClient } from "@libsql/client";
 
-const db = new Database("sqlite.db");
+const db = createClient({
+    url: process.env.TURSO_DATABASE_URL || "file:sqlite.db",
+    authToken: process.env.TURSO_AUTH_TOKEN,
+});
 
 const getBaseUrl = () => {
   const url = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
@@ -9,7 +12,10 @@ const getBaseUrl = () => {
 };
 
 export const auth = betterAuth({
-    database: db,
+    database: {
+        db,
+        type: "libsql"
+    },
     baseURL: getBaseUrl(),
     emailAndPassword: {
         enabled: true,
