@@ -2,11 +2,13 @@
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
-import { ShoppingSun, LogOut, User as UserIcon } from "lucide-react";
+import { Sun, LogOut, User as UserIcon, ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const { data: session } = authClient.useSession();
   const router = useRouter();
+  const { totalItems } = useCart();
 
   const handleLogout = async () => {
     await authClient.signOut();
@@ -29,7 +31,7 @@ export default function Navbar() {
           </ul>
         </div>
         <Link href="/" className="btn btn-ghost text-xl flex items-center gap-2">
-          <ShoppingSun className="w-6 h-6 text-orange-500" />
+          <Sun className="w-6 h-6 text-orange-500" />
           SunCart
         </Link>
       </div>
@@ -41,6 +43,14 @@ export default function Navbar() {
         </ul>
       </div>
       <div className="navbar-end flex gap-2">
+        <Link href="/cart" className="btn btn-ghost btn-circle">
+          <div className="indicator">
+            <ShoppingCart className="h-5 w-5" />
+            {totalItems > 0 && (
+              <span className="badge badge-sm badge-primary indicator-item text-white">{totalItems}</span>
+            )}
+          </div>
+        </Link>
         {session ? (
           <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

@@ -14,8 +14,10 @@ export default function UpdateProfilePage() {
 
   useEffect(() => {
     if (session?.user) {
-      setName(session.user.name || "");
-      setImage(session.user.image || "");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setName((prev) => (prev === "" ? session.user.name || "" : prev));
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setImage((prev) => (prev === "" ? session.user.image || "" : prev));
     }
   }, [session]);
 
@@ -25,7 +27,7 @@ export default function UpdateProfilePage() {
     setError("");
     
     try {
-      const { data, error } = await authClient.updateUser({
+      const { error } = await authClient.updateUser({
         name,
         image
       });
@@ -72,14 +74,22 @@ export default function UpdateProfilePage() {
               
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-semibold">Photo URL (Image)</span>
+                  <span className="label-text font-semibold">Upload Photo</span>
                 </label>
                 <input
-                  type="url"
-                  className="input input-bordered w-full"
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                  placeholder="https://example.com/my-photo.jpg"
+                  type="file"
+                  accept="image/*"
+                  className="file-input file-input-bordered w-full"
+                  onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => {
+                        setImage(reader.result as string);
+                      };
+                      reader.readAsDataURL(file);
+                    }
+                  }}
                 />
               </div>
               

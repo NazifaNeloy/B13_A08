@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ShoppingSun, Facebook, Twitter, Instagram } from "lucide-react";
+import { Sun, Phone, Mail, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content mt-10">
+    <footer className="footer footer-horizontal p-10 bg-base-200 text-base-content mt-10">
       <aside>
-        <ShoppingSun className="w-12 h-12 text-orange-500" />
+        <Sun className="w-12 h-12 text-orange-500" />
         <p>
           <span className="font-bold text-xl">SunCart Ltd.</span>
           <br />
@@ -35,9 +35,9 @@ export default function Footer() {
       <nav>
         <h6 className="footer-title">Social</h6>
         <div className="grid grid-flow-col gap-4">
-          <a className="hover:text-primary transition-colors cursor-pointer"><Twitter className="w-6 h-6" /></a>
-          <a className="hover:text-primary transition-colors cursor-pointer"><Instagram className="w-6 h-6" /></a>
-          <a className="hover:text-primary transition-colors cursor-pointer"><Facebook className="w-6 h-6" /></a>
+          <a className="hover:text-primary transition-colors cursor-pointer"><Mail className="w-6 h-6" /></a>
+          <a className="hover:text-primary transition-colors cursor-pointer"><MapPin className="w-6 h-6" /></a>
+          <a className="hover:text-primary transition-colors cursor-pointer"><Phone className="w-6 h-6" /></a>
         </div>
       </nav>
     </footer>

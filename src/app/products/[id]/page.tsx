@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import productsData from "@/data/products.json";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
+import AddToCartButton from "@/components/AddToCartButton";
 
 export default async function ProductDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
@@ -59,9 +60,7 @@ export default async function ProductDetailsPage({ params }: { params: Promise<{
           </div>
           
           <div className="card-actions justify-end mt-auto">
-            <button className="btn btn-primary btn-lg w-full text-white text-lg rounded-full shadow-lg hover:shadow-xl transition-shadow" disabled={product.stock === 0}>
-              Add to Cart
-            </button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </div>

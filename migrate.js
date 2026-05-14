@@ -1,4 +1,4 @@
-const Database = require('better-sqlite3');
+const Database = require('better-sqlite3'); // eslint-disable-line @typescript-eslint/no-require-imports
 const db = new Database('sqlite.db');
 
 db.exec(`

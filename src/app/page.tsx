@@ -3,12 +3,13 @@ import productsData from "@/data/products.json";
 
 function Hero() {
   return (
-    <div className="hero min-h-[70vh] relative overflow-hidden" style={{backgroundImage: "url('/assets/product1.png')", backgroundSize: "cover", backgroundPosition: "center"}}>
-      <div className="hero-overlay bg-opacity-70 bg-black"></div>
+    <div className="hero min-h-[70vh] relative overflow-hidden">
+      <img src="/assets/hero-bg.png" alt="Summer Hero" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="hero-overlay bg-opacity-40 bg-black"></div>
       <div className="hero-content text-center text-neutral-content relative z-10">
         <div className="max-w-xl animate__animated animate__fadeInUp">
           <h1 className="mb-5 text-6xl font-extrabold text-white drop-shadow-lg">Summer Sale <span className="text-orange-400">50% OFF</span></h1>
-          <p className="mb-8 text-xl text-gray-200">
+          <p className="mb-8 text-xl text-gray-200 font-medium">
             Get ready for the summer with our hot deals 🔥 on all summer essentials. Stay cool, stylish, and protected.
           </p>
           <Link href="/products" className="btn btn-primary btn-lg text-white border-none rounded-full px-8 shadow-lg">Shop Now</Link>
