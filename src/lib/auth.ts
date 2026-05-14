@@ -3,9 +3,14 @@ import Database from "better-sqlite3";
 
 const db = new Database("sqlite.db");
 
+const getBaseUrl = () => {
+  const url = process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  return url.endsWith("/") ? url.slice(0, -1) : url;
+};
+
 export const auth = betterAuth({
     database: db,
-    baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
+    baseURL: getBaseUrl(),
     emailAndPassword: {
         enabled: true,
     },
