@@ -39,7 +39,8 @@ export default function UpdateProfilePage() {
         router.refresh();
       }
     } catch (err) {
-      setError("An unexpected error occurred");
+      console.error("Update error:", err);
+      setError(err instanceof Error ? err.message : "An unexpected error occurred");
     } finally {
       setLoading(false);
     }
